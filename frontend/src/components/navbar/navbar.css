@@ -66,12 +66,28 @@
   /* Hamburger menu styling */
   .hamburgerMenu {
     display: none;
-    font-size: 33px;
+    font-size: 30px;
     text-align: right; /* Added to align the hamburger menu to the right */
   }
   
   /* Media queries for responsive design */
   @media screen and (max-width: 850px) {
+    .navbar {
+      display: flex;
+      justify-content: center;
+      gap: 2px;
+    }
+
+    .logoImg {
+      width: 20vw;
+      margin-left: 10px;
+    }
+
+    .cart-icon{
+      font-size: 25px;
+      margin-right: 20px;
+    }
+
     .navlinks {
       display: none;
     }

@@ -5,7 +5,7 @@ import { useAuthGlobally } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useCartGlobally } from '../../context/CartContext';
-import { GiHamburgerMenu } from "react-icons/gi";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { FiShoppingCart } from "react-icons/fi";
 import { Badge, IconButton } from '@mui/material';
 import Search from '../search/Search';
@@ -61,10 +61,12 @@ const Navbar = () => {
           </div>
           <NavLink to="/cart">
             <Badge badgeContent={cart.length} color="error">
-              <FiShoppingCart />
+              <div className='cart-icon'>
+                <FiShoppingCart />
+              </div>
             </Badge>
           </NavLink>
-          <p className='hamburgerMenu'><GiHamburgerMenu /></p>
+          <p className='hamburgerMenu'><RxHamburgerMenu /></p>
         </div>
       </div>
     </div>
