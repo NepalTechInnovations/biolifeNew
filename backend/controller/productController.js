@@ -109,11 +109,59 @@ const generateSKU = () => {
 };
 
 // Controller for creating a product
+// exports.createProduct = [
+//     upload.array('images', 5), // Accept up to 5 images
+//     async (req, res) => {
+//         try { 
+//             const { name, description, realPrice, salePrice, brand, category } = req.body;
+
+//             // Validate required fields
+//             if (!name || !description || !realPrice || !salePrice || !brand || !category) {
+//                 return res.status(400).json({ success: false, message: 'All fields are required' });
+//             }
+
+//             // Upload images to Cloudinary and get their URLs
+//             const imageUrls = [];
+//             for (const file of req.files) {
+//                 const result = await cloudinary.uploader.upload(file.path);
+//                 imageUrls.push(result.secure_url);
+//             }
+
+//             // Generate SKU
+//             const sku = generateSKU();
+
+//             // Calculate discount percentage
+//             const discount = ((realPrice - salePrice) / realPrice) * 100;
+
+//             // Create a new product document in the database
+//             const createProduct = await productModel.create({
+//                 name,
+//                 realPrice,
+//                 salePrice,
+//                 category,
+//                 sku,
+//                 discount,
+//                 brand,
+//                 description, 
+//                 images: imageUrls
+//             });
+
+//             return res.status(201).json({ success: true, message: 'Product Created', createProduct });
+
+//         } catch (error) {
+//             return res.status(500).json({ success: false, message: `Internal server error: ${error.message}` });
+//         }
+//     }
+// ];
+
+
+
+
 exports.createProduct = [
     upload.array('images', 5), // Accept up to 5 images
     async (req, res) => {
         try { 
-            const { name, description, realPrice, salePrice, brand, category } = req.body;
+            const { name, description, realPrice, salePrice, brand, category, isTrending, isBestSeller } = req.body;
 
             // Validate required fields
             if (!name || !description || !realPrice || !salePrice || !brand || !category) {
@@ -143,7 +191,9 @@ exports.createProduct = [
                 discount,
                 brand,
                 description, 
-                images: imageUrls
+                images: imageUrls,
+                isTrending: isTrending === 'true', // Convert string to boolean
+                isBestSeller: isBestSeller === 'true' // Convert string to boolean
             });
 
             return res.status(201).json({ success: true, message: 'Product Created', createProduct });
@@ -153,7 +203,6 @@ exports.createProduct = [
         }
     }
 ];
-
 
 
 

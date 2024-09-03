@@ -44,7 +44,18 @@ const productSchema = new mongoose.Schema({
     },
     images: [{
         type: String
-    }]
+    }],
+
+    isTrending: {
+        type: Boolean,
+        default: false
+    },
+    isBestSeller: {
+        type: Boolean,
+        default: false
+    }
+
+
 }, { timestamps: true });
 
 productSchema.pre('save', function(next) {

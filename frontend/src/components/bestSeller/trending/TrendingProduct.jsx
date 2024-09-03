@@ -1,12 +1,8 @@
-import '../trending/trendingProduct.css'
-
-
-
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import '../trending/trendingProduct.css';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
+import '../trending/trendingProduct.css';
 
 const TrendingProduct = () => {
   const [products, setProducts] = useState([]);
@@ -16,10 +12,9 @@ const TrendingProduct = () => {
       const response = await axios.get(`${import.meta.env.VITE_REACT_APP_URL}/api/v1/product/getAllProduct`);
       if (response.data.success) {
         const allProducts = response.data.getAllProducts;
-        setProducts(allProducts);
-        // Extract unique categories
-        const uniqueCategories = [...new Set(allProducts.map(product => product.category.categoryName))];
-        // setCategories(uniqueCategories); // Ensure to have the categories state if you need it
+        // Filter products to only include those where isTrending is true
+        const trendingProducts = allProducts.filter(product => product.isTrending);
+        setProducts(trendingProducts);
       }
     } catch (error) {
       if (error.response) {
@@ -40,22 +35,27 @@ const TrendingProduct = () => {
         <div className="trendingProductContainer">
           <h2 className='trendingHeading homeHeading'>Trending Products</h2>
           <div className="trendingCard">
-            {products.map((tProduct) => (
-              <Link className='link' key={tProduct._id} to={`/products-details/${tProduct.slug}`}>
-              <div key={tProduct.id} className="cardContainer">
-                <img className='trendingImg' src={tProduct.images[0]} alt={tProduct.name} />
-                <div className='tredingCardDetails'>
-                  <p>{tProduct?.category?.categoryName}</p>
-                  <h4 className='homePage_product_title'>{tProduct.name.slice(0,25)}</h4>
-                  <div className="product-rating"> <span>⭐⭐⭐⭐⭐</span></div>
-                  <div className='trendingPrice'>
-                    <p>Rs {tProduct.salePrice}</p>
-                    {tProduct.realPrice && <p className="original-price">Rs {tProduct.realPrice}</p>}
+            {products.length > 0 ? (
+              products.map((tProduct) => (
+                <Link className='link' key={tProduct._id} to={`/products-details/${tProduct.slug}`}>
+                  <div className="cardContainer">
+                    <div className='trendingBadge'>Trending</div>
+                    <img className='trendingImg' src={tProduct.images[0]} alt={tProduct.name} />
+                    <div className='tredingCardDetails'>
+                      <p>{tProduct?.category?.categoryName}</p>
+                      <h4 className='homePage_product_title'>{tProduct.name.slice(0, 25)}</h4>
+                      <div className="product-rating"> <span>⭐⭐⭐⭐⭐</span></div>
+                      <div className='trendingPrice'>
+                        <p>Rs {tProduct.salePrice}</p>
+                        {tProduct.realPrice && <p className="original-price">Rs {tProduct.realPrice}</p>}
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            ) : (
+              <p>No trending products available</p>
+            )}
           </div>
         </div>
       </div>
