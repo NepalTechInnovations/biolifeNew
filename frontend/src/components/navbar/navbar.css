@@ -85,7 +85,6 @@
 
     .cart-icon{
       font-size: 25px;
-      margin-right: 20px;
     }
 
     .navlinks {
@@ -93,6 +92,7 @@
     }
   
     .hamburgerMenu {
+      margin-left: 20px;
       display: block; /* Display the hamburger menu on smaller screens */
     }
   }
