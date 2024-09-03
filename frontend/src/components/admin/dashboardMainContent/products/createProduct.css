@@ -15,6 +15,9 @@
     color: var(--whiteColor);
     margin-bottom: 12px;
 }
+.textEditor{
+  color: black;
+}
 .createProductForm select option{
     color: black;
 }

@@ -147,9 +147,6 @@
 
 
 
-
-
-
 import React, { useState, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import axios from 'axios';
@@ -159,7 +156,6 @@ import Specification from './specification/Specification';
 import toast from 'react-hot-toast';
 import { useCartGlobally } from '../../context/CartContext';
 import ProductReviews from './rating/ProductReviews';
-
 
 const ProductDetails = () => {
     const { slug } = useParams();
@@ -225,7 +221,8 @@ const ProductDetails = () => {
                         </div>
                         <div className="productDetailsDataRight">
                             <h4 className='productHeading'>{product.name}</h4>
-                            <p>{product.description}</p>
+                            {/* Render HTML content from Jodit using dangerouslySetInnerHTML */}
+                            <div dangerouslySetInnerHTML={{ __html: product.description }} />
                             <div className="priceContainer">
                                 <h4 className='salePrice'>Rs {product.salePrice}</h4>
                                 <h4 className='realPrice'>Rs {product.realPrice}</h4>
