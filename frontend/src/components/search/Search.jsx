@@ -25,7 +25,7 @@ const Search = () => {
         <input
           className="search"
           name="search"
-          placeholder="Search Product Here..."
+          placeholder="Search Product..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
           onKeyDown={handleKeyPress }
