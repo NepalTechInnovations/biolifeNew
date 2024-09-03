@@ -7,10 +7,10 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Cart = () => {
     const { cart, incrementQuantity, decrementQuantity, removeFromCart } = useCartGlobally();
-    const [auth, setAuth] = useAuthGlobally();
+    const [auth] = useAuthGlobally();  // Removed setAuth as it's not used
     const navigate = useNavigate();
 
-    const totalPrice = cart.reduce((acc, item) => acc + (Number(item.salePrice) * item.quantity), 0);
+    const totalPrice = cart.reduce((acc, item) => acc + (Number(item.salePrice || 0) * (item.quantity || 0)), 0);
 
     const handleCheckout = () => {
         if (!auth.user) {
@@ -23,23 +23,27 @@ const Cart = () => {
     return (
         <div className="cart">
             <div className="container">
-                    <h3>Shopping Cart</h3>
+                <h3>Shopping Cart</h3>
                 <div className="cartContainer">
                     <div className="cartItems">
                         {cart.length > 0 ? (
                             cart.map(item => (
                                 <div className="cartItem" key={item._id}>
-                                    <img src={item.images[0]} alt={item.name} className="cartItemImg" />
+                                    <img 
+                                        src={(item.images && item.images.length > 0) ? item.images[0] : '/images/default.jpg'} 
+                                        alt={item.name || 'Product Image'} 
+                                        className="cartItemImg" 
+                                    />
                                     <div className="cartItemDetails">
-                                        <p>{item.name}</p>
+                                        <p>{item.name || 'Unknown Product'}</p>
                                         <div className="quantityControl">
                                             <button onClick={() => decrementQuantity(item._id)}>-</button>
-                                            <span>{item.quantity}</span>
+                                            <span>{item.quantity || 0}</span>
                                             <button onClick={() => incrementQuantity(item._id)}>+</button>
                                         </div>
-                                        <p>Rs {Number(item.salePrice).toFixed(2)}</p>
+                                        <p>Rs {Number(item.salePrice || 0).toFixed(2)}</p>
                                     </div>
-                                    <button className="removeItem" onClick={() => removeFromCart(item._id)}><MdDeleteForever/></button>
+                                    <button className="removeItem" onClick={() => removeFromCart(item._id)}><MdDeleteForever /></button>
                                 </div>
                             ))
                         ) : (
@@ -50,10 +54,10 @@ const Cart = () => {
                         <h3>Summary</h3>
                         <div className="summaryDetails">
                             <p>ITEMS {cart.length}</p>
-                            <p>Total: Rs {Number(totalPrice.toFixed(2))}</p>
+                            <p>Total: Rs {Number(totalPrice).toFixed(2)}</p>
                             <label>SHIPPING</label>
                             <select>
-                                <option>Cash On Delevery</option>
+                                <option>Cash On Delivery</option>
                                 {/* <option>Khalti</option> */}
                             </select>
                             <button className="checkoutBtn" onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
