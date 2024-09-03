@@ -1,15 +1,23 @@
+/* Container styling to ensure the navbar is centered and aligned */
+.navbar-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Centering logo, search component, and nav links */
 .navbar {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   padding: 12px 0;
-  background-color: var(--whiteColor);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  justify-content: center;
+  text-align: center;
 }
 
-/* Logo styling */
+/* Centering the logo image */
 .logo {
   display: flex;
   justify-content: center;
@@ -19,32 +27,52 @@
   width: 40%;
 }
 
-/* Navigation links styling */
+/* Centering the search component */
+.search-component {
+  display: flex;
+  justify-content: center;
+}
+
+/* Nav links styling */
 .navlinks {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 
-.navlinks li {
-  font-size: 15px;
-}
-
 .navlinks li a {
   text-decoration: none;
-  color: var(--blackTextColor);
+  font-size: 15px;
+  color: black;
+}
+
+/* User initial styling */
+.user-initial {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #007bff;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
 }
 
 /* Hamburger menu styling */
 .hamburger-menu {
   display: none;
+  font-size: 33px;
   background: none;
   border: none;
   cursor: pointer;
-  font-size: 33px;
+  text-align: right;
 }
 
 /* Media queries for responsive design */

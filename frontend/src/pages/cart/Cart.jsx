@@ -7,7 +7,7 @@ import { MdDeleteForever } from "react-icons/md";
 
 const Cart = () => {
     const { cart, incrementQuantity, decrementQuantity, removeFromCart } = useCartGlobally();
-    const [auth] = useAuthGlobally();  // Removed setAuth as it's not used
+    const [auth] = useAuthGlobally(); 
     const navigate = useNavigate();
 
     const totalPrice = cart.reduce((acc, item) => acc + (Number(item.salePrice || 0) * (item.quantity || 0)), 0);
