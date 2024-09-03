@@ -414,7 +414,6 @@ const CreateProduct = () => {
 
     return (
         <div className="adminDashboard">
-            <Toaster />
             <div className="sideMenuContainer">
                 <SideMenu />
             </div>

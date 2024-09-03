@@ -18,6 +18,7 @@ import CreateCategory from './components/admin/dashboardMainContent/category/Cre
 import CreateProduct from './components/admin/dashboardMainContent/products/CreateProduct';
 import CreateBrand from './components/admin/dashboardMainContent/brand/CreateBrand';
 import Blog from './pages/blog/Blog';
+import GetAllProducts from './components/admin/dashboardMainContent/products/GetAllProducts';
 
 
 const App = () => {
@@ -48,6 +49,7 @@ const App = () => {
             <Route path='admin/createProduct' element={<CreateProduct/>}/>
             <Route path='admin/createCategory' element={<CreateCategory/>}/>
             <Route path='admin/createBrand' element={<CreateBrand/>}/>
+            <Route path='admin/getallproduct' element={<GetAllProducts/>}/>
             </Route>
            
 

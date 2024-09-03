@@ -31,8 +31,11 @@ const SideMenu = () => {
             <Link className='link' to={'/dashboard/admin/createProduct'}> 
             <p><IoMdArrowDropright className="subItemIcon" /> Add Product</p>
             </Link>
-           
-            <p><IoMdArrowDropright className="subItemIcon" /> Products</p>
+            
+            <Link className='link' to={'/dashboard/admin/getallproduct'}> 
+            <p><IoMdArrowDropright className="subItemIcon" /> Product</p>
+            </Link>
+          
             <p><IoMdArrowDropright className="subItemIcon" /> Customers</p>
             <p><IoMdArrowDropright className="subItemIcon" /> Orders</p>
             <p><IoMdArrowDropright className="subItemIcon" /> Order Details</p>

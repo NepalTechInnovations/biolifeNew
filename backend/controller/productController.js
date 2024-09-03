@@ -194,18 +194,72 @@ exports.getSingleProduct = async (req, res) => {
 
 
 //update product
+
+// exports.updateProduct = [
+//     upload.array('images', 5), // Accept up to 5 images
+//     async (req, res) => {
+//         try {
+//             const { name, realPrice, salePrice, brand } = req.body;
+//             const { id } = req.params;
+
+//             if (!name || !realPrice || !salePrice || !brand) {
+//                 return res.status(400).json({ success: false, message: 'All fields are required' });
+//             }
+
+//             // Update product details
+//             let updatedProduct = await productModel.findById(id);
+
+//             if (!updatedProduct) {
+//                 return res.status(404).json({ success: false, message: 'Product not found' });
+//             }
+
+//             updatedProduct.name = name;
+//             updatedProduct.realPrice = realPrice;
+//             updatedProduct.salePrice = salePrice;
+//             updatedProduct.brand = brand;
+
+//             // Update images if uploaded
+//             if (req.files && req.files.length > 0) {
+//                 // Upload new images to Cloudinary
+//                 const newImages = [];
+//                 for (const file of req.files) {
+//                     const result = await cloudinary.uploader.upload(file.path);
+//                     newImages.push(result.secure_url);
+//                 }
+//                 // Replace existing images with new ones
+//                 updatedProduct.images = newImages;
+//             }
+
+//             // Save updated product
+//             updatedProduct = await updatedProduct.save();
+
+//             return res.status(200).json({ success: true, message: 'Product updated successfully', updatedProduct });
+
+//         } catch (error) {
+//             console.error('Error updating product:', error);
+//             return res.status(500).json({ success: false, message: `Internal server error ${error}`});
+//         }
+//     }
+// ];
+
+
+
+
+
+
+// Update product
 exports.updateProduct = [
     upload.array('images', 5), // Accept up to 5 images
     async (req, res) => {
         try {
-            const { name, realPrice, salePrice, brand } = req.body;
+            const { name, realPrice, salePrice, brand, category } = req.body;
             const { id } = req.params;
 
-            if (!name || !realPrice || !salePrice || !brand) {
+            if (!name || !realPrice || !salePrice || !brand || !category) {
                 return res.status(400).json({ success: false, message: 'All fields are required' });
             }
 
-            // Update product details
+            // Find product and update it
             let updatedProduct = await productModel.findById(id);
 
             if (!updatedProduct) {
@@ -216,6 +270,7 @@ exports.updateProduct = [
             updatedProduct.realPrice = realPrice;
             updatedProduct.salePrice = salePrice;
             updatedProduct.brand = brand;
+            updatedProduct.category = category;
 
             // Update images if uploaded
             if (req.files && req.files.length > 0) {
@@ -236,11 +291,10 @@ exports.updateProduct = [
 
         } catch (error) {
             console.error('Error updating product:', error);
-            return res.status(500).json({ success: false, message: `Internal server error ${error}`});
+            return res.status(500).json({ success: false, message: `Internal server error: ${error.message}` });
         }
     }
 ];
-
 
 
 
