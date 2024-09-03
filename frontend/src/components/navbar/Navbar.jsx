@@ -2,7 +2,12 @@ import React from 'react';
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { useAuthGlobally } from '../../context/AuthContext';
 import { useCartGlobally } from '../../context/CartContext';
+<<<<<<< HEAD
 import { GiHamburgerMenu } from "react-icons/gi";
+=======
+import { RxHamburgerMenu } from "react-icons/rx";
+import { FiShoppingCart } from "react-icons/fi";
+>>>>>>> e1ccc68 (remove unused IconButton from import)
 import { Badge } from '@mui/material';
 import Search from '../search/Search';
 import axios from 'axios';
