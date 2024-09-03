@@ -1,0 +1,101 @@
+ .categoryHeading{
+    margin-top: 20px;
+}
+
+.categoryList{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 2rem;
+    cursor: pointer;
+    margin-top: 12px;
+}
+
+.categoyListImg{
+    width: 134px;
+    height: 134px;
+    object-fit: cover;
+}
+
+
+.categoryListName{
+    color: black;
+    text-decoration: none;
+    list-style-type: none;
+} 
+
+
+
+
+
+
+.categoryListContainer {
+    position: relative;
+    overflow: hidden;
+}
+
+.categoryListWrapper {
+    display: flex;
+    transition: transform 0.3s ease-in-out;
+    will-change: transform;
+}
+
+.categoryItem {
+    min-width: 150px; /* Adjust based on your requirements */
+    margin-right: 1rem; /* Adjust spacing between items */
+}
+
+.slideButton {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.6);
+    border: none;
+    color: white;
+    width: 30px; /* Smaller width */
+    height: 30px; /* Smaller height */
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s, box-shadow 0.3s;
+    font-size: 16px; /* Smaller font size for arrows */
+}
+
+.slideButton.left {
+    left: 10px;
+}
+
+.slideButton.right {
+    right: 10px;
+}
+
+.slideButton:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+}
+
+.slideButton:focus {
+    outline: none;
+}
+
+.slideButton::before {
+    content: '';
+    display: block;
+    width: 0;
+    height: 0;
+    border-style: solid;
+}
+
+.slideButton.left::before {
+    border-width: 6px 10px 6px 0; /* Smaller arrow size */
+    border-color: transparent #fff transparent transparent;
+}
+
+.slideButton.right::before {
+    border-width: 6px 0 6px 10px; /* Smaller arrow size */
+    border-color: transparent transparent transparent #fff;
+}
