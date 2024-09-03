@@ -171,6 +171,48 @@
 
 
 
+
+
+/* for skeleton effect */
+
+.product-thumbnail-skeleton,
+.product-main-image-skeleton {
+    width: 100%;
+    height: auto;
+    max-width: 60px; 
+}
+
+.product-thumbnail-skeleton {
+    max-width: 60px;
+    height: 60px;
+}
+
+.product-main-image-skeleton {
+    max-width: 200px;
+    height: 200px;
+}
+
+.deal-info .ant-skeleton {
+    width: 100%;
+}
+
+.deal-info .ant-skeleton .ant-skeleton-element {
+    margin-bottom: 16px;
+}
+
+.deal-info .ant-skeleton .ant-skeleton-title {
+    width: 80%;
+}
+
+.deal-info .ant-skeleton .ant-skeleton-paragraph {
+    width: 100%;
+}
+
+
+
+
+
+
 /* media quereis start from here */
 
 @media screen and (max-width: 850px) {
@@ -185,3 +227,6 @@
     }
     
 }
+
+
+

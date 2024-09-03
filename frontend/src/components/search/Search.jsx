@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
-import '../search/search.css';
+import './Search.css'; // Ensure correct path to CSS
 
 const Search = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -20,21 +20,17 @@ const Search = () => {
   };
 
   return (
-    <div className="searchContainer">
-      <div className="searchWrapper">
-        <input
-          className="search"
-          name="search"
-          placeholder="Search Product Here..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          onKeyDown={handleKeyPress }
-        />
-        <FaSearch className="searchIcon" onClick={handleSearch} />
-      </div>
+    <div className="search-wrapper">
+      <input
+        className="search-input"
+        placeholder="Search Product Here..."
+        value={searchQuery}
+        onChange={(e) => setSearchQuery(e.target.value)}
+        onKeyDown={handleKeyPress}
+      />
+      <FaSearch className="search-icon" onClick={handleSearch} />
     </div>
   );
 };
 
 export default Search;
-

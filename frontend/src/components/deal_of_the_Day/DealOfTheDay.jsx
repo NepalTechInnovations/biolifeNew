@@ -3,6 +3,7 @@ import '../deal_of_the_Day/dealOfTheDay.css';
 import axios from 'axios';
 import { toast } from 'react-hot-toast';
 import { useCartGlobally } from '../../context/CartContext';
+import { Skeleton } from 'antd';
 
 const DealOfTheDay = () => {
     const [products, setProducts] = useState([]);
@@ -72,7 +73,26 @@ const DealOfTheDay = () => {
     };
 
     if (!selectedProduct) {
-        return <div>Loading...</div>;
+        return (
+            <div className="container">
+                <div className="deal-of-the-day">
+                    <div className="deal-info">
+                        <Skeleton active title={false} paragraph={{ rows: 4 }} />
+                    </div>
+                    <div className="deal-product">
+                        <div className="product-images">
+                            <Skeleton.Image className="product-thumbnail-skeleton" />
+                        </div>
+                        <div className="product-main">
+                            <Skeleton.Image className="product-main-image-skeleton" />
+                        </div>
+                        <div className="product-info">
+                            <Skeleton active title={false} paragraph={{ rows: 4 }} />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     return (

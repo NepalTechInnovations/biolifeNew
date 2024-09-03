@@ -40,9 +40,33 @@
     will-change: transform;
 }
 
+.categoryList {
+    display: flex;
+    gap: 1rem;
+}
+
 .categoryItem {
-    min-width: 150px; /* Adjust based on your requirements */
-    margin-right: 1rem; /* Adjust spacing between items */
+    min-width: 150px;
+    margin-right: 1rem;
+}
+
+.categoryItem.skeleton {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+}
+
+.categorySkeletonImg {
+    width: 134px;
+    height: 134px;
+    border-radius: 8px;
+}
+
+.categorySkeletonText {
+    width: 80%;
+    margin-top: 0.5rem;
 }
 
 .slideButton {
@@ -52,8 +76,8 @@
     background-color: rgba(0, 0, 0, 0.6);
     border: none;
     color: white;
-    width: 30px; /* Smaller width */
-    height: 30px; /* Smaller height */
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -62,7 +86,7 @@
     z-index: 1;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: background-color 0.3s, box-shadow 0.3s;
-    font-size: 16px; /* Smaller font size for arrows */
+    font-size: 16px;
 }
 
 .slideButton.left {
@@ -91,11 +115,11 @@
 }
 
 .slideButton.left::before {
-    border-width: 6px 10px 6px 0; /* Smaller arrow size */
+    border-width: 6px 10px 6px 0;
     border-color: transparent #fff transparent transparent;
 }
 
 .slideButton.right::before {
-    border-width: 6px 0 6px 10px; /* Smaller arrow size */
+    border-width: 6px 0 6px 10px;
     border-color: transparent transparent transparent #fff;
 }
