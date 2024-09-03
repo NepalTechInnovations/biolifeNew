@@ -12,7 +12,7 @@
   /* Centering logo, search component, and nav links */
   .navbar {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     align-items: center; /* Added to vertically center items */
     padding: 12px 0; /* Adjusted padding for better spacing */
     text-align: center; /* Added to center text inside the grid */

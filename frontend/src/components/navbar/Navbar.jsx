@@ -6,6 +6,7 @@ import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useCartGlobally } from '../../context/CartContext';
 import { GiHamburgerMenu } from "react-icons/gi";
+import { FiShoppingCart } from "react-icons/fi";
 import { Badge, IconButton } from '@mui/material';
 import Search from '../search/Search';
 
@@ -43,13 +44,6 @@ const Navbar = () => {
             <li><NavLink to="/">Home</NavLink></li>
             <li><NavLink to="/products">Products</NavLink></li>
             <li><NavLink to="/contact">Contact</NavLink></li>
-            <li>
-              <NavLink to="/cart">
-                <Badge badgeContent={cart.length} color="error">
-                  Cart
-                </Badge>
-              </NavLink>
-            </li>
 
             <li><NavLink to="/blog">Blog</NavLink></li>
             {
@@ -65,6 +59,11 @@ const Navbar = () => {
             }
           </ul>
          </div>
+         <NavLink to="/cart">
+                <Badge badgeContent={cart.length} color="error">
+                  <FiShoppingCart />
+                </Badge>
+              </NavLink>
           <p className='hamburgerMenu'><GiHamburgerMenu/></p>
         </div>
       </div>
