@@ -36,35 +36,35 @@ const Navbar = () => {
           </div>
 
           <div className='searchComponent'>
-          <Search/>
+            <Search />
           </div>
-        
-         <div>
-         <ul className='navlinks'>
-            <li><NavLink to="/">Home</NavLink></li>
-            <li><NavLink to="/products">Products</NavLink></li>
-            <li><NavLink to="/contact">Contact</NavLink></li>
 
-            <li><NavLink to="/blog">Blog</NavLink></li>
-            {
-              auth?.user ? (
-                <div className="navbar-user">
-                  <li onClick={handleLogout}><NavLink to="#">Logout</NavLink></li>
-                </div>
-              ) : (
-                <>
-                  <li><NavLink to="/login">Login</NavLink></li>
-                </>
-              )
-            }
-          </ul>
-         </div>
-         <NavLink to="/cart">
-                <Badge badgeContent={cart.length} color="error">
-                  <FiShoppingCart />
-                </Badge>
-              </NavLink>
-          <p className='hamburgerMenu'><GiHamburgerMenu/></p>
+          <div>
+            <ul className='navlinks'>
+              <li><NavLink to="/">Home</NavLink></li>
+              <li><NavLink to="/products">Products</NavLink></li>
+              <li><NavLink to="/contact">Contact</NavLink></li>
+
+              <li><NavLink to="/blog">Blog</NavLink></li>
+              {
+                auth?.user ? (
+                  <div className="navbar-user">
+                    <li onClick={handleLogout}><NavLink to="#">Logout</NavLink></li>
+                  </div>
+                ) : (
+                  <>
+                    <li><NavLink to="/login">Login</NavLink></li>
+                  </>
+                )
+              }
+            </ul>
+          </div>
+          <NavLink to="/cart">
+            <Badge badgeContent={cart.length} color="error">
+              <FiShoppingCart />
+            </Badge>
+          </NavLink>
+          <p className='hamburgerMenu'><GiHamburgerMenu /></p>
         </div>
       </div>
     </div>
