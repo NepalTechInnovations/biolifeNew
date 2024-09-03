@@ -254,7 +254,8 @@ const ProductDetails = () => {
                     <div className="allProducts">
                         {relatedProducts.length > 0 ? (
                             relatedProducts.map(relatedProduct => (
-                                <Link className='link' to={`/products-details/${relatedProduct._id}`} key={relatedProduct._id}>
+                                <Link className='link' to={`/products-details/${relatedProduct.slug}`} key={relatedProduct._id}>
+                                {/* <Link className='link' to={`/products-details/${relatedProduct._id}`} key={relatedProduct._id}> */}
                                     <div className='productChildContainer'>
                                         <img className='productImg' src={relatedProduct.images[0]} alt={relatedProduct.name} />
                                         <p className='productName'>{relatedProduct.name}</p>
