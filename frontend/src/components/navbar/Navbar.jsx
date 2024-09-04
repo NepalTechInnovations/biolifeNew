@@ -5,7 +5,7 @@ import { useAuthGlobally } from '../../context/AuthContext';
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useCartGlobally } from '../../context/CartContext';
-import { RxHamburgerMenu } from "react-icons/rx";
+import { TbMenuDeep } from "react-icons/tb";
 import { FiShoppingCart } from "react-icons/fi";
 import { Badge } from '@mui/material';
 import Search from '../search/Search';
@@ -66,7 +66,7 @@ const Navbar = () => {
               </div>
             </Badge>
           </NavLink>
-          <p className='hamburgerMenu'><RxHamburgerMenu /></p>
+          <p className='hamburgerMenu'><TbMenuDeep /></p>
         </div>
       </div>
     </div>

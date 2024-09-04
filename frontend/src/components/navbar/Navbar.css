@@ -66,10 +66,13 @@
 /* Hamburger menu styling */
 .hamburgerMenu {
   display: none;
-  font-size: 30px;
+  font-size: 25px;
   text-align: right; /* Added to align the hamburger menu to the right */
 }
-
+.cart-icon{
+  font-size: 20px;
+  color: black;
+}
 /* Media queries for responsive design */
 @media screen and (max-width: 850px) {
   .navbar {
@@ -82,9 +85,7 @@
     width: 20vw;
   }
 
-  .cart-icon{
-    font-size: 25px;
-  }
+ 
 
   .navlinks {
     display: none;
