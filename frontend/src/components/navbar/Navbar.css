@@ -35,7 +35,7 @@
   justify-content: center;
   align-items: center; /* Adjusted to vertically align the links */
   gap: 2rem;
-  margin: 0;
+  margin-left: 3rem;
 }
 
 .navlinks li {
@@ -75,12 +75,11 @@
   .navbar {
     display: flex;
     justify-content: center;
-    gap: 2px;
+    gap: 1rem;
   }
 
   .logoImg {
     width: 20vw;
-    margin-left: 10px;
   }
 
   .cart-icon{
@@ -92,7 +91,6 @@
   }
 
   .hamburgerMenu {
-    margin-left: 20px;
     display: block; /* Display the hamburger menu on smaller screens */
   }
 }
