@@ -1,47 +1,45 @@
 /* Container styling to ensure the navbar is centered and aligned */
-.navbar-container {
+.navbarContainer {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added to give a subtle shadow to the navbar */
 }
+
 
 /* Centering logo, search component, and nav links */
 .navbar {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  align-items: center;
-  padding: 12px 0;
-  text-align: center;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: center; /* Added to vertically center items */
+  padding: 12px 0; /* Adjusted padding for better spacing */
+  text-align: center; /* Added to center text inside the grid */
 }
 
 /* Centering the logo image */
-.logo {
-  display: flex;
-  justify-content: center;
-}
-
-.logo-img {
+.logoImg {
   width: 40%;
+  margin: 0 auto; /* Added to center the logo horizontally */
 }
 
 /* Centering the search component */
-.search-component {
-  display: flex;
-  justify-content: center;
+.searchComponent {
+  text-align: center; /* Added to ensure the search bar is centered */
 }
 
 /* Nav links styling */
 .navlinks {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; /* Adjusted to vertically align the links */
   gap: 2rem;
   margin: 0;
-  padding: 0;
-  list-style: none;
+}
+
+.navlinks li {
+  list-style-type: none;
 }
 
 .navlinks li a {
@@ -66,22 +64,35 @@
 }
 
 /* Hamburger menu styling */
-.hamburger-menu {
+.hamburgerMenu {
   display: none;
-  font-size: 33px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  text-align: right;
+  font-size: 30px;
+  text-align: right; /* Added to align the hamburger menu to the right */
 }
 
 /* Media queries for responsive design */
 @media screen and (max-width: 850px) {
+  .navbar {
+    display: flex;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .logoImg {
+    width: 20vw;
+    margin-left: 10px;
+  }
+
+  .cart-icon{
+    font-size: 25px;
+  }
+
   .navlinks {
     display: none;
   }
 
-  .hamburger-menu {
-    display: block;
+  .hamburgerMenu {
+    margin-left: 20px;
+    display: block; /* Display the hamburger menu on smaller screens */
   }
 }
