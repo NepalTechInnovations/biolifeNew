@@ -87,7 +87,9 @@ const ProductDetails = () => {
                             </div>
                             <h4 className='productBrand'> Brand: {product.brand.brandName}</h4>
                             <h4 className='productBrand'>Category: {product.category.categoryName}</h4>
-                            <p className='productDiscount'>{product.discount}% off</p>
+                            <p className='productDiscount'>{Math.floor(product.discount)}% off</p>
+                            {/* <p className='productDiscount'>{Math.round(product.discount)}% off</p> */}
+
                             <button className='cartBtn' onClick={handleAddToCart}>Add to Cart</button>
                         </div>
                     </div>

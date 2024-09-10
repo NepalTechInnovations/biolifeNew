@@ -14,16 +14,16 @@ const Cart = () => {
 
     const handleCheckout = () => {
         if (!auth.user) {
-            navigate('/login');
+            navigate('/login');  // Redirect to login if not authenticated
         } else {
-            navigate('/checkout');
+            navigate('/checkout');  // Proceed to checkout if authenticated
         }
     };
 
     return (
         <div className="cart">
-            <div className="container">
-                <h3>Shopping Cart</h3>
+            <div className="container shadowTest">
+                <h3 className='Cartheading'>Shopping Cart</h3>
                 <div className="cartContainer">
                     <div className="cartItems">
                         {cart.length > 0 ? (
@@ -35,13 +35,13 @@ const Cart = () => {
                                         className="cartItemImg" 
                                     />
                                     <div className="cartItemDetails">
-                                        <p>{item.name || 'Unknown Product'}</p>
-                                        <div className="quantityControl">
-                                            <button onClick={() => decrementQuantity(item._id)}>-</button>
-                                            <span>{item.quantity || 0}</span>
-                                            <button onClick={() => incrementQuantity(item._id)}>+</button>
-                                        </div>
-                                        <p>Rs {Number(item.salePrice || 0).toFixed(2)}</p>
+                                        <h2 className='cartProductName'>{item.name || 'Unknown Product'}</h2>
+                                        <h4 className='cartPrice'>Rs {Number(item.salePrice || 0).toFixed(2)}</h4>
+                                    </div>
+                                    <div className="quantityControl">
+                                        <button onClick={() => decrementQuantity(item._id)}>-</button>
+                                        <span>{item.quantity || 0}</span>
+                                        <button onClick={() => incrementQuantity(item._id)}>+</button>
                                     </div>
                                     <button className="removeItem" onClick={() => removeFromCart(item._id)}><MdDeleteForever /></button>
                                 </div>
@@ -60,7 +60,13 @@ const Cart = () => {
                                 <option>Cash On Delivery</option>
                                 {/* <option>Khalti</option> */}
                             </select>
-                            <button className="checkoutBtn" onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
+
+                            {/* Conditionally render button based on user authentication */}
+                            {auth.user ? (
+                                <button className="checkoutBtn" onClick={handleCheckout}>PROCEED TO CHECKOUT</button>
+                            ) : (
+                                <button className="checkoutBtn" onClick={() => navigate('/login')}>LOGIN TO CONTINUE</button>
+                            )}
                         </div>
                     </div>
                 </div>
